@@ -1,6 +1,6 @@
 package com.capacitorjs.plugins.browser;
 
-import static androidx.browser.customtabs.CustomTabsIntent.SHARE_STATE_ON;
+import static androidx.browser.customtabs.CustomTabsIntent.SHARE_STATE_OFF;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -97,7 +97,8 @@ public class Browser {
     public void open(Uri url, @Nullable Integer toolbarColor) {
         CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder(getCustomTabsSession());
 
-        builder.setShareState(SHARE_STATE_ON);
+        builder.setShareState(SHARE_STATE_OFF);
+        builder.setShowTitle(false);
 
         if (toolbarColor != null) {
             CustomTabColorSchemeParams params = new CustomTabColorSchemeParams.Builder().setToolbarColor(toolbarColor.intValue()).build();
